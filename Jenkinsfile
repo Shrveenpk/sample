@@ -23,10 +23,12 @@ pipeline{
     }
     stage (' Sonar Quality Check') {
       steps{
-       withSonarQubeEnv('sonarqube') {
-        sh 'mvn sonar:sonar'
-        } 
-      }
-    }
+        script{
+              withSonarQubeEnv('sonarqube') {
+                sh 'mvn clean package sonar:sonar'
+         }
+        }
+       }
+     }
   }
 }
