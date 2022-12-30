@@ -21,7 +21,7 @@ pipeline{
        sh 'mvn clean install package' 
       }
     }
-    stage (' Sonar Quality Check') {
+    stage (' Sonar Check') {
       steps{
         script{
               withSonarQubeEnv('sonarqube') {
